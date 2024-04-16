@@ -4,6 +4,7 @@ metadata:
   name: workload
   namespace: default
 spec:
+  interval: 1m
   url: https://github.com/nick.barrett/veco-nuc-site
   ref:
     branch: main
@@ -14,6 +15,7 @@ metadata:
   name: metallb
   namespace: default
 spec:
+  interval: 10m
   url: https://github.com/metallb/metallb
   ref:
     name: refs/tags/v0.14.4

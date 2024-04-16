@@ -5,6 +5,7 @@ metadata:
   namespace: default
 spec:
   url: https://kubernetes.github.io/dashboard/
+  interval: 5m
 ---
 apiVersion: v1
 kind: Namespace

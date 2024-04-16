@@ -1,0 +1,15 @@
+apiVersion: v1
+kind: Namespace
+metadata:
+  name: metallb-system
+---
+apiVersion: kustomize.toolkit.fluxcd.io/v1
+kind: Kustomization
+metadata:
+  name: metallb
+  namespace: default
+spec:
+  targetNamespace: metallb-system
+  sourceRef:
+    kind: GitRepository
+    name: metallb

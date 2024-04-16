@@ -10,6 +10,8 @@ metadata:
   namespace: default
 spec:
   targetNamespace: metallb-system
+  interval: 5m
+  prune: true
   sourceRef:
     kind: GitRepository
     name: metallb

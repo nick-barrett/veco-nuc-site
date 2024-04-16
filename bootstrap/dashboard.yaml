@@ -18,6 +18,7 @@ metadata:
   namespace: default
 spec:
   targetNamespace: kubernetes-dashboard
+  interval: 5m
   chart:
     spec:
       chart: kubernetes-dashboard

@@ -5,7 +5,7 @@ metadata:
   namespace: default
 spec:
   interval: 1m
-  url: https://github.com/nick.barrett/veco-nuc-site
+  url: https://github.com/nick-barrett/veco-nuc-site
   ref:
     branch: main
 ---

@@ -1,17 +1,3 @@
-apiVersion: source.toolkit.fluxcd.io/v1
-kind: GitRepository
-metadata:
-  name: workload
-  namespace: default
-spec:
-  interval: 1m
-  url: https://github.com/nick-barrett/veco-nuc-site
-  ref:
-    branch: main
-  ignore: |
-    /*
-    !/workload 
----
 apiVersion: source.toolkit.fluxcd.io/v1beta2
 kind: HelmRepository
 metadata:

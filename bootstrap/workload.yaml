@@ -1,0 +1,13 @@
+apiVersion: kustomize.toolkit.fluxcd.io/v1
+kind: Kustomization
+metadata:
+  name: workload
+  namespace: default
+spec:
+  interval: 1m0s
+  targetNamespace: default
+  sourceRef:
+    kind: GitRepository
+    name: workload
+  prune: true
+  timeout: 5m0s

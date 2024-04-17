@@ -9,5 +9,6 @@ spec:
   sourceRef:
     kind: GitRepository
     name: workload
+  path: "./workload"
   prune: true
   timeout: 5m0s

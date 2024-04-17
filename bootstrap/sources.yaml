@@ -9,13 +9,11 @@ spec:
   ref:
     branch: main
 ---
-apiVersion: source.toolkit.fluxcd.io/v1
-kind: GitRepository
+apiVersion: source.toolkit.fluxcd.io/v1beta2
+kind: HelmRepository
 metadata:
   name: metallb
   namespace: default
 spec:
-  interval: 10m
-  url: https://github.com/metallb/metallb
-  ref:
-    name: refs/tags/v0.14.4
+  interval: 5m0s
+  url: https://metallb.github.io/metallb

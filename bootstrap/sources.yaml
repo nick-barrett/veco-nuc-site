@@ -15,5 +15,5 @@ metadata:
   name: metallb
   namespace: default
 spec:
-  interval: 5m0s
+  interval: 60m0s
   url: https://metallb.github.io/metallb

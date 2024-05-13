@@ -7,7 +7,7 @@ metadata:
     vmoperator.vmware.com/image-supported-check: disable
 spec:
   className: guaranteed-small
-  imageName: cloud-images.ubuntu.com/releases/22.04/release/ubuntu-22.04-server-cloudimg-amd64.ova
+  imageName: packages.vmware.com/photon/4.0/Rev2/ova/photon-ova-4.0-c001795b80.ova
   powerState: poweredOn
   networkInterfaces:
   - networkName: "VM Network"

@@ -19,17 +19,16 @@ metadata:
   name: nginx-config
   namespace: default
 data:
-  nginx.conf: '
-events {}
-http {
-   server {
-       listen 80;
-       location / {
-           return 200 "Hello world!";
+  nginx.conf: |
+    events {}
+    http {
+       server {
+           listen 80;
+           location / {
+               return 200 "Hello world!";
+           }
        }
-   }
-}
-'
+    }
 ---
 apiVersion: apps/v1
 kind: Deployment

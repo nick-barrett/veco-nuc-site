@@ -4,11 +4,12 @@ metadata:
   name: kubernetes-dashboard-lb
   namespace: kubernetes-dashboard
 spec:
-  type: LoadBalancer
+  type: NodePort
   ports:
     - port: 80
       protocol: TCP
       targetPort: 8000
+      nodePort: 32001
   selector:
     app.kubernetes.io/instance: kubernetes-dashboard-kubernetes-dashboard
     app.kubernetes.io/name: kubernetes-dashboard-web

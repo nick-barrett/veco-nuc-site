@@ -4,10 +4,12 @@ metadata:
   name: nginx
   namespace: default
 spec:
-  type: LoadBalancer
+  type: NodePort
   ports:
   - port: 80
+    protocol: TCP
     targetPort: 80
+    nodePort: 32002
   selector:
     app: nginx
 ---
@@ -18,8 +20,6 @@ metadata:
   namespace: default
 data:
   nginx.conf: '
-events {
-}
 http {
    server {
        listen 80;

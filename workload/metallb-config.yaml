@@ -1,7 +1,7 @@
 apiVersion: metallb.io/v1beta1
 kind: IPAddressPool
 metadata:
-  name: ecs-lb-pool
+  name: ecs-metallb-pool
   namespace: metallb-system
 spec:
   addresses:
@@ -24,4 +24,4 @@ metadata:
   namespace: metallb-system
 spec:
   ipAddressPools:
-  - ecs-lb-pool
+  - ecs-metallb-pool

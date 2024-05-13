@@ -1,39 +1,33 @@
 apiVersion: vmoperator.vmware.com/v1alpha1
 kind: VirtualMachine
 metadata:
-  name: ubuntu-vm
+  name: linux-vm
   namespace: default
   annotations:
     vmoperator.vmware.com/image-supported-check: disable
 spec:
   className: guaranteed-small
-  imageName: cloud-images.ubuntu.com/releases/22.04/release/ubuntu-22.04-server-cloudimg-amd64.ova
+  #imageName: cloud-images.ubuntu.com/releases/22.04/release/ubuntu-22.04-server-cloudimg-amd64.ova
+  imageName: packages.vmware.com/photon/4.0/GA/ova/photon-hw11-4.0-1526e30ba0.ova
   powerState: poweredOn
   networkInterfaces:
   - networkName: "VM Network"
     ethernetCardType: "vmxnet3"
   vmMetadata:
-    configMapName: user-data-ubuntu
+    configMapName: user-data-linux
     transport: CloudInit
 ---
 apiVersion: v1
 kind: ConfigMap
 metadata:
-    name: user-data-ubuntu
+    name: user-data-linux
     namespace: default
 data:
   user-data: |
     #cloud-config
-    ssh_pwauth: true
     users:
       - name: nbarrett
         sudo: ALL=(ALL) NOPASSWD:ALL
-        lock_passwd: true
         ssh_authorized_keys:
           - ssh-rsa AAAAB3NzaC1yc2EAAAADAQABAAABgQC721B9GHDORoUdum4qBpHZMuqikiM3zApKTJOCDgxge37SPls2expR5ejrDaLyo+1teekIX5qdkOM2+AzJ42c6n3uqR+dha76BIRflJ0ItWY8G+USheIEbJrD4XgYPEFEvZQB/XGA8oRbiLYphtQX8ZhVtZxTrx39u4RiInNayYqnum+0tuIatvIBdzK7XfUDhpssgTnOBKrevADmCJA+Xc+tcCx6o6Eq7UriLnOGGMMaYtVgxjIfI07/XD6xEQm1Sexkwuoj2zxjRFsgbFvIySMEW88rXAEDvbui7Az+uZlxL4Y3Y3pfqFOHD4WGWJFNc3QaeG6/tM1ZwUd+xStV0TjDDPRyWL8amEcRa0RXPUUwW6ZTseWwXHUsk08ESWZie5LVdB+3kVjn04pa5DSJ+SM8sKuGWMfhr+RPsYs3fzoRyfxx+gyZI3z9UYzrfzbYtT5xD6LLTtSNPKKkgjb5X5kdtGiU6bbWfDxz6XH0VIdZN14GrNAXs+sPsu4WvCW0= nbarrett@nbarrett-a01.vmware.com
           - ssh-rsa AAAAB3NzaC1yc2EAAAADAQABAAABgQDF4nbIw69JTvzgksj64aynl22GDRTqOS+7Hhyd2Ivgf/fdljXLixJ9N+JhY5noqkVHrrMAmrlrTTv35ZeVJJCFKU/zILcxZ9ecsJFYNmxXpVLA0NOgA1awLgyB48MqpVEHwj/i6dPuoFNEL0ST6Qdt/g7b6fCPjd6VAFOyAP51bbJcGo3idc7mgs/ioAvw9mprFmJCNCHe/TmdVETfI6gjg5kokmN8XTlsgsK4opFegPZxnYH6/WJsvE3sF58WhpCkUUsPwAbyxQz4WHMPrDVqXSXzmuNYlEIPhWAKJ6CtuP7QXxvyecmf0fNdG8IcH0qayX7lTlU3XgUkW4p39v4mICIEmDPG2XD+PSB8VmeThIIQFxsYhAZgTAJsaILYWSQTccoioV4+Qw/J+xr+luWGH1Wj16Z4dHqDsuWqccwvddoZ0OBaM9KDPE9XzWBYKxMdUIuAnG5DhUzW36qJnIgGdHStBBugWMJ1XslRnLrkbf4m3JnwaWvZ1ykVEAnc5+M= nbarrett@nicks-mbp.lan
-        shell: /bin/bash
-    write_files:
-      - content: |
-          VECO VM service says Hello World
-        path: /helloworld
